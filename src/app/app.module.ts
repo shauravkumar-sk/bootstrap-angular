@@ -7,6 +7,9 @@ import { IngestionComponent } from './ingestion/ingestion.component';
 import { FormtemplateComponent } from './formtemplate/formtemplate.component';
 import { NavbarTopComponent } from './navbar-top/navbar-top.component';
 import { NavbarSideComponent } from './navbar-side/navbar-side.component';
+import { RouterModule } from '@angular/router';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,16 @@ import { NavbarSideComponent } from './navbar-side/navbar-side.component';
     IngestionComponent,
     FormtemplateComponent,
     NavbarTopComponent,
-    NavbarSideComponent
+    NavbarSideComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    RouterModule.forRoot([
+      { path: 'ingestion', component: IngestionComponent }
+     ])
   ],
   providers: [],
   bootstrap: [AppComponent]
