@@ -43,25 +43,31 @@
   </div></div>
    <div class="form-group">
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
+      <input class="form-check-input" type="checkbox"    id="csvIngestionEnabled" name="csvIngestionEnabled" (change)="triggerSomeEvent()" [(ngModel)]="ingestion.csvIngestionEnabled">
+      <label class="form-check-label" for="csvIngestionEnabled">
       Import from CSV
       </label>
     </div>
-    <div class="form-row">
+    <div class="form-row" >
         <div class="form-group col-md-6">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile">
-            <label class="custom-file-label" for="customFile">Choose CSV file</label>
+            <input type="file" class="custom-file-input" id="csvFileLocation" name="csvFileLocation" [(ngModel)]="ingestion.csvFileLocation" [disabled]="isDisabled" >
+            <label class="custom-file-label" for="csvFileLocation">Choose CSV file</label>
           </div>
           <script>
+              document.getElementById('csvIngestionEnabled').onchange = function() {
+              document.getElementById('csvFileLocation').enabled = !this.checked;
+              };
+              </script>
+              
+          <!-- <script>
               $('#customFile').on('change',function(){
                   //get the file name
                   var fileName = $(this).val();
                   //replace the "Choose a file" label
                   $(this).next('.custom-file-label').html(fileName);
               })
-          </script>
+          </script> -->
         </div></div>
   </div>
   <button type="submit" class="btn btn-primary">Save Config</button>
