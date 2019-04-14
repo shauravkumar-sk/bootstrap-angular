@@ -10,6 +10,7 @@ import { NavbarSideComponent } from './navbar-side/navbar-side.component';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConnectionComponent } from './connection/connection.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarTopComponent,
     NavbarSideComponent,
     NavBarComponent,
+    ConnectionComponent,
   ],
   imports: [
     BrowserModule,
