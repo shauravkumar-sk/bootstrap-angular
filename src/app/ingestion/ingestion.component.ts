@@ -9,31 +9,33 @@ import { ApiService } from '../api.service';
 })
 export class IngestionComponent implements OnInit {
 
-  // private  connections:  Array<object> = [];
+  private  connections:  Array<object> = [];
   submitted = false;
 
   constructor(private  apiService:  ApiService) { }
 
 private  ingestion = new IngestionConfig('','','','',false,false,'');
   ngOnInit() {
-    // this.findConnectionByType('Target');
+     this.findConnectionByType('Target');
   }
 
   public  findConnectionByType(type:string){
-		// this.apiService.findConnectionByType(type).subscribe((data:  Array<object>) => {
-		// 	this.connections  =  data;
+		this.apiService.findConnectionByType(type).subscribe((data:  Array<object>) => {
+			this.connections  =  data;
 			
-			console.log(this.ingestion);
-    // });
+			console.log(data);
+		});
   }
+
 
   public onSubmit() { 
-    // this.submitted = true;
-      console.log(this.ingestion);
-  }
-  public checkValue(event){
-
-    console.log(event);
+  this.submitted = true;
+    console.log(this.ingestion);
+  
+   this.apiService.saveIngestionConfig(this.ingestion).subscribe((ingestion : IngestionConfig) => {
+       this.ingestion  =  ingestion;
+        console.log(ingestion);
+    });
   }
 
   isDisabled = true;
