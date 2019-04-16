@@ -14,7 +14,7 @@ export class IngestionComponent implements OnInit {
 
   constructor(private  apiService:  ApiService) { }
 
-private  ingestion = new IngestionConfig('','','','',false,false,'');
+private  ingestion = new IngestionConfig('','','','','','',false,false,false,'');
   ngOnInit() {
      this.findConnectionByType('Target');
   }
@@ -42,6 +42,10 @@ private  ingestion = new IngestionConfig('','','','',false,false,'');
     triggerSomeEvent() {
         this.isDisabled = !this.isDisabled;
         return;
+    }
+connectionName="";
+    selectConnection(name){
+this.connectionName=name;
     }
 }
 

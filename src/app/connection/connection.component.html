@@ -1,3 +1,89 @@
-<form action="">
+       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom col-md-6">
+              <h1 class="h2">Connection Configuration</h1>
+            </div> 
+       
+          
+       <div class="my-2 mx-5">
+          <div *ngIf="submitted; then IngestionDisplay else IngestionForm">  </div>
+      
+             <ng-template #IngestionDisplay>
+                Template Saved successfully !
+                <a class="nav-link" ><button class="btn btn-secondary" (click)="reload()">Create Another</button></a>
+             </ng-template>
+             
 
-</form>
+      <ng-template #IngestionForm>                 
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" ngNativeValidate  >
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="connectionName">Connection Name</label>
+            <input type="text" class="form-control" id="connectionName" name="connectionName" [(ngModel)]="connection.connectionName" placeholder="Name" required #name>
+            <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger"></div> -->
+          </div>
+        </div>
+
+        <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="description">Description</label>
+                  <input type="text" class="form-control" id="description" name="description" [(ngModel)]="connection.description" placeholder="Description" required>
+                </div>
+        </div>
+        <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="type">Connection Type</label>
+                  <select  class="form-control" id="type" name="type" [(ngModel)]="connection.type" required>
+                      <option >Source</option>
+                      <option>Target</option>
+                      </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="cms">CMS Type</label>
+                  <select  class="form-control" id="cms" name="cms" [(ngModel)]="connection.cms"  required>
+                      <option selected="selected">Documentum</option>
+                      <option>Alfresco</option>
+                      </select>
+                </div>
+                </div>
+        <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="repositoryUrl">Repository Name</label>
+                  <input type="text" class="form-control" id="repositoryUrl" name="repositoryUrl" [(ngModel)]="connection.repositoryUrl" placeholder="Repository" required>
+                </div>
+        </div>
+
+        <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="loginID">Login ID</label>
+                  <input type="text" class="form-control" id="loginID" name="loginID" [(ngModel)]="connection.loginID" placeholder="User" required>
+                </div>
+        </div>
+        <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" [(ngModel)]="connection.password" placeholder="Password" required>
+                </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Config</button>
+      </form>   
+      </ng-template>   
+
+      <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+            </script>

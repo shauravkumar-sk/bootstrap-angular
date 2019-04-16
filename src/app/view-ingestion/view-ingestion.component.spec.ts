@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarSideComponent } from './navbar-side.component';
+import { ViewIngestionComponent } from './view-ingestion.component';
 
-describe('NavbarSideComponent', () => {
-  let component: NavbarSideComponent;
-  let fixture: ComponentFixture<NavbarSideComponent>;
+describe('ViewIngestionComponent', () => {
+  let component: ViewIngestionComponent;
+  let fixture: ComponentFixture<ViewIngestionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarSideComponent ]
+      declarations: [ ViewIngestionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarSideComponent);
+    fixture = TestBed.createComponent(ViewIngestionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

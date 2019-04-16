@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavbarTopComponent } from './navbar-top.component';
+import { ViewConnectionComponent } from './view-connection.component';
 
-describe('NavbarTopComponent', () => {
-  let component: NavbarTopComponent;
-  let fixture: ComponentFixture<NavbarTopComponent>;
+describe('ViewConnectionComponent', () => {
+  let component: ViewConnectionComponent;
+  let fixture: ComponentFixture<ViewConnectionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarTopComponent ]
+      declarations: [ ViewConnectionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavbarTopComponent);
+    fixture = TestBed.createComponent(ViewConnectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

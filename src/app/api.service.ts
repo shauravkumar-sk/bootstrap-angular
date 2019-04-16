@@ -4,7 +4,7 @@ import { Connection } from  './connection';
 import { Extraction } from  './extraction';
 import { TransformConfig } from  './transformConfig';
 import { FileConfig } from './fileConfig';
-import { IngestionConfig } from  './IngestionConfig';
+import { IngestionConfig } from  './ingestion-config';
 import { Jobs } from './jobs';
 
 @Injectable({
@@ -12,7 +12,7 @@ import { Jobs } from './jobs';
 })
 
 export class ApiService {
-  API_URL:string =  'http://10.155.142.11:8083';
+  API_URL:string =  'http://localhost:8083';
  
    // API_URL:string =  'http://localhost:8083';
  
